@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>销售信息</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+</head>
+<body>
+<form class="layui-form" th:object="${sales}" id="categoryFrm" method="post">
+    <input type="hidden" name="salesid" id="salesid" th:value="*{salesid}"/>
+    <div class="layui-form-item" style="margin-top: 20px;">
+        <label class="layui-form-label">销售名称：</label>
+        <div class="layui-input-block">
+            <input type="text" name="salesname" id="salesname" th:value="*{salesname}"
+                   style="width: 200px;" placeholder="请输入销售名称" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="*">确认</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/jquery-1.11.3.js}"></script>
+<script th:src="@{/biz/sales_view.js}"></script>
+</body>
+</html>

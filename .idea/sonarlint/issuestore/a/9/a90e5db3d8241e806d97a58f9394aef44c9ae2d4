@@ -1,0 +1,8 @@
+
+f
+java:S13016"KReplace this "switch" statement by "if" statements to increase readability.(¢»¥Çüÿÿÿÿ
+<	java:S1316""Add a default case to this switch.(¢»¥Çüÿÿÿÿ
+D
+java:S1874i".Remove this use of "getOne"; it is deprecated.(Õß ´
+[
+java:S4684w"@Replace this persistent entity with a simple POJO or DTO object.(ŠÒžÁüÿÿÿÿ

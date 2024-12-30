@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>评分信息</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+</head>
+<body>
+<form class="layui-form" th:object="${score}" id="scoreFrm" method="post">
+    <input type="hidden" name="scoreid" id="scoreid" th:value="*{scoreid}"/>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">销售名称：</label>
+        <div class="layui-input-block" style="width: 200px;">
+            <!-- 存储关联表sales的销售编号信息。因为新增时为空，所以使用?问号处理空值 -->
+            <input type="hidden" id="salesid" th:value="*{sales?.salesid}">
+            <select id="sales" name="sales" lay-verify="required">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">仪容仪表：</label>
+        <div class="layui-input-block" style="width: 200px;">
+            <input type="text" name="score1" id="score1" th:value="*{score1}"
+                   placeholder="请输入仪容仪表评分" class="layui-input" lay-verify="required|number" maxlength="1">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">沟通表达：</label>
+        <div class="layui-input-block" style="width: 200px;">
+            <input type="text" name="score2" id="score2" th:value="*{score2}"
+                   placeholder="请输入沟通表达评分" class="layui-input" lay-verify="required|number" maxlength="1">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">临场应变：</label>
+        <div class="layui-input-block" style="width: 200px;">
+            <input type="text" name="score3" id="score3" th:value="*{score3}"
+                   placeholder="请输入临场应变评分" class="layui-input" lay-verify="required|number" maxlength="1">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">技术知识：</label>
+        <div class="layui-input-block" style="width: 200px;">
+            <input type="text" name="score4" id="score4" th:value="*{score4}"
+                   placeholder="请输入技术知识评分" class="layui-input" lay-verify="required|number" maxlength="1">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">组织协调：</label>
+        <div class="layui-input-block" style="width: 200px;">
+            <input type="text" name="score5" id="score5" th:value="*{score5}"
+                   placeholder="请输入组织协调评分" class="layui-input" lay-verify="required|number" maxlength="1">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="*">确认</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/jquery-1.11.3.js}"></script>
+<script th:src="@{/biz/score_view.js}"></script>
+</body>
+</html>

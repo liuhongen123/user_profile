@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>评分结果</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+</head>
+<body>
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">每个销售的成绩为多名评委评分的平均值</div>
+            <div class="layui-card-body">
+                <div id="EchartAllSales" style="width: 500px;height: 500px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">点击左图中每个销售的评分，可以查看其分项指标，当前为【<span id="currentSales"></span>】的分项评分</div>
+            <div class="layui-card-body">
+                <div id="EchartSales" style="width: 500px;height: 500px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/jquery-1.11.3.js}"></script>
+<script th:src="@{/biz/result.js}"></script>
+</body>
+</html>

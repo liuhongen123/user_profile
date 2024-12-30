@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>销售培训考评系统</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!-- header -->
+    <div class="layui-header">
+        <div class="layui-logo">销售培训考评系统</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                欢迎您，<span th:text="${user.username}"></span>
+            </li>
+            <li class="layui-nav-item"><a href="logout">注销</a></li>
+        </ul>
+    </div>
+
+    <!-- side -->
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item" th:each="menuOne : ${user.menuOnes}">
+                    <a class="" href="javascript:;" th:text="${menuOne.menuname}"></a>
+                    <dl class="layui-nav-child" th:each="menuTwo : ${menuOne.menuTwos}">
+                        <dd class="layui-nav">
+                            <a href="javascript:;" th:id="${menuTwo.menuid}"
+                               th:url="${menuTwo.menuurl}" th:title="${menuTwo.menuname}" class="site-demo-active">
+                                <cite th:text="${menuTwo.menuname}"></cite>
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+
+                <!--<li class="layui-nav-item layui-nav-itemed">-->
+                <!--<a class="" href="javascript:;">业务模块</a>-->
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd>-->
+                <!--<a href="javascript:;" class="site-demo-active"-->
+                <!--data-id="3" data-title="评分结果" data-url="result" data-type="tabAdd">评分结果</a>-->
+                <!--</dd>-->
+                <!--<dd>-->
+                <!--<a href="javascript:;" class="site-demo-active"-->
+                <!--data-id="4" data-title="评分管理" data-url="score" data-type="tabAdd">评分管理</a>-->
+                <!--</dd>-->
+                <!--</dl>-->
+                <!--</li>-->
+                <!--<li class="layui-nav-item">-->
+                <!--<a class="" href="javascript:;">基础模块</a>-->
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd>-->
+                <!--<a href="javascript:;" class="site-demo-active"-->
+                <!--data-id="1" data-title="用户管理" data-url="user" data-type="tabAdd">用户管理</a>-->
+                <!--</dd>-->
+                <!--<dd>-->
+                <!--<a href="javascript:;" class="site-demo-active"-->
+                <!--data-id="2" data-title="销售管理" data-url="sales" data-type="tabAdd">销售管理</a>-->
+                <!--</dd>-->
+                <!--</dl>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+
+    <!-- tab -->
+    <div class="layui-tab" lay-filter="demo" lay-allowclose="true" style="margin-left: 200px;">
+        <ul class="layui-tab-title">系统主页</ul>
+        <div class="layui-tab-content">
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="layui-footer" style="text-align:center;">
+        <!-- 底部固定区域 -->
+        © temptation 2020
+    </div>
+</div>
+<script th:src="@{/layui/layui.all.js}"></script>
+<script th:src="@{/biz/index.js}"></script>
+</body>
+</html>

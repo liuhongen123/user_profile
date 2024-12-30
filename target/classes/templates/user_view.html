@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+</head>
+<body>
+<form class="layui-form" th:object="${user}" id="categoryFrm" method="post">
+    <input type="hidden" name="userid" id="userid" th:value="*{userid}"/>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">用户名称：</label>
+        <div class="layui-input-block">
+            <input type="text" name="username" id="username" th:value="*{username}"
+                   style="width: 200px;" placeholder="请输入用户名称" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">用户密码：</label>
+        <div class="layui-input-block">
+            <input type="text" name="password" id="password" th:value="*{password}"
+                   style="width: 200px;" placeholder="请输入用户密码" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+        <label class="layui-form-label">角色名称：</label>
+        <div class="layui-input-block" style="width: 200px;">
+            <!-- 存储关联表role的销售编号信息。因为新增时为空，所以使用?问号处理空值 -->
+            <input type="hidden" id="roleid" th:value="*{role?.roleid}">
+            <select id="role" name="role" lay-verify="required">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="*">确认</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/jquery-1.11.3.js}"></script>
+<script th:src="@{/biz/user_view.js}"></script>
+</body>
+</html>
